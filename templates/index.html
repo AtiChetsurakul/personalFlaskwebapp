@@ -1,0 +1,194 @@
+{% include "header.html" %}
+<body class="is-preload">
+
+		<!-- Header -->
+		<div id="header">
+
+			<div class="top">
+
+				<!-- Logo -->
+					<div id="logo">
+						<span class="image avatar48"><img src="{{ url_for('static',filename = 'images/avatar.jpg') }}" alt="" /></span>
+						<h1 id="title">Ati chetsurakul</h1>
+						{%if current_user.is_authenticated%}
+						<p>Chemist,AI/Data scientist<a href = '{{url_for("crpost")}}'>🟢</a></p>
+						{%else%}
+						<p>Chemist,AI/Data scientist</p>
+						{%endif%}
+					</div>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li><a href="#top" id="top-link"><span class="icon solid fa-home">Intro</span></a></li>
+							<li><a href="#about" id="about-link"><span class="icon solid fa-user">About Me</span></a></li>
+							<li><a href="#portfolio" id="portfolio-link"><span class="icon solid fa-th">Portfolio</span></a></li>
+							<li><a href="#contact" id="contact-link"><span class="icon solid fa-envelope">Contact</span></a></li>
+
+						</ul>
+					</nav>
+				   
+			</div>
+			<div class="bottom">
+
+				<!-- Social Icons -->
+					<ul class="icons">
+						<li><a href="https://www.linkedin.com/in/ati-chetsurakul-408230150/" class="icon brands fa-linkedin"><span class="label">Twitter</span></a></li>
+						<li><a href="https://www.instagram.com/a.t.i.ii/" class="icon brands fa-instagram"><span class="label">Facebook</span></a></li>
+						<li><a href="https://github.com/AtiChetsurakul" class="icon brands fa-github"><span class="label">Github</span></a></li>
+						<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						{%if current_user.is_authenticated%}
+						<li><a href="{{url_for('logout')}}" class="icon solid fa-key"><span class="label">Logout</span></a></li>
+						{%else%}
+						<li><a href="{{url_for('to_login')}}" class="icon solid fa-key"><span class="label">Login</span></a></li>
+						{%endif%}
+						
+					</ul>
+			</div>
+			</div>
+
+		</div>
+
+
+		<!-- Main -->
+			<div id="main">
+
+				<!-- Intro -->
+					<section id="top" class="one dark cover">
+						<div class="container">
+
+							<header>
+								<h2 class="alt">Hello,my name is <strong> Ati</strong>.</h2>
+								<p>Bachelor of Science Degree in Chemistry from <a href='https://beta.sut.ac.th/science/'>SUT</a><br />
+								Currently study in Master dergree of Data Science and AI</p>
+							</header>
+
+							<footer>
+								<a href="{{url_for('download_cv')}}" class="button scrolly">Download CV file as pdf</a>
+							</footer>
+
+						</div>
+
+
+
+					</section>
+									<!-- About Me -->
+									<section id="about" class="three">
+										<div class="container">
+				
+											<header>
+												<h2>About Me</h2>
+											</header>
+				
+											<a href="#" class="image featured"><img src="static/images/pic08.jpg" alt="" /></a>
+											
+											<p>My name is ati tesakulsiri(chetsurakul). My primary objective is to make a scientific research tool with AI. I graduated from SUT in science chemistry. Currently, I am a master's degree student in DS/AI field at AIT.
+                                                With Harvard OpenCourseWare(cs50x and cs50ai) and 100Day of code, I can develop programs/model...etc using python to aid everyday life.
+				
+										</div>
+					</section>
+
+				<!-- Portfolio -->
+					<section id="portfolio" class="two">
+						<div class="container">
+
+							<header>
+								<h2>Portfolio</h2>
+							</header>
+
+							<p>Personal and task project from open course or experiment will be post here.</p>
+
+							<div class="row">
+
+							
+								<div class="col-4 col-12-mobile">
+									<article class="item">
+										<a href="#" class="image fit"><img src="https://pll.harvard.edu/sites/default/files/styles/header/public/course/CS50x_pll.png?itok=jeRsZsvB" alt="" /></a>
+										<header>
+											<h3>CS50x</h3>
+										</header>
+									</article>
+									<span>Example</span>
+									<article class="item">
+										<a href="#portfolio" class="image fit"><img src="https://live.staticflickr.com/65535/52080973349_dab10ed0fe_b.jpg" alt="" /></a>
+										<header>
+											<h5>[iOS] hemical data fetcher app</h5>
+										</header>
+									</article>
+
+								</div>
+
+
+								<div class="col-4 col-12-mobile">
+									<article class="item">
+										<a href="#" class="image fit"><img src="https://prod-discovery.edx-cdn.org/media/course/image/3a31db71-de8f-45f1-ae65-11981ed9d680-b801bb328333.small.png" alt="Picture unavaible" /></a>
+										<header>
+											<h3>CS50AI</h3>
+										</header>
+									</article>
+									<span>Example</span>
+									<article class="item">
+										<a href="#portfolio" class="image fit"><img src="https://live.staticflickr.com/65535/52079730647_0ec35236b2_b.jpg" alt="" /></a>
+										<header>
+											<h5>Minimax for tic tac toe</h5>
+										</header>
+									</article>
+									
+								</div>
+								<div class="col-4 col-12-mobile">
+									<article class="item">
+										<a href="#" class="image fit"><img src="http://justfunfacts.com/wp-content/uploads/2021/03/black.jpg" alt="" /></a>
+										<header>
+											<h3>100D with python</h3>
+										</header>
+									</article>
+									<span>Example</span>
+									<article class="item">
+										<a href="#portfolio" class="image fit"><img src="https://live.staticflickr.com/65535/52080747736_d55d40af08_b.jpg" alt="" /></a>
+										<header>
+											<h5>[Flask]Personal Web app </h5>
+										</header>
+									</article>
+									
+								</div>
+
+
+							</div>
+							<footer>
+								<a href="{{url_for('show_pf')}}" class="button" style="background-color:#FFA38C">All project</a>
+							</footer>
+
+						</div>
+					</section>
+
+
+
+				<!-- Contact -->
+					<section id="contact" class="four">
+						<div class="container">
+
+							<header>
+								<h2>Contact</h2>
+							</header>
+							<p>Sending massage to me with Email via this form or send manually @<br>atichets@outlook.com<br>
+								if any question or need more details.</p>
+							<form method="post" action="mailto:atichets@outlook.com" method='POST' enctype='multipart/form-data' name='EmailForm'>
+								<div class="row">
+									<div class="col-6 col-12-mobile"><input type="text" name="name" placeholder="Name" /></div>
+									<div class="col-6 col-12-mobile"><input type="text" name="email" placeholder="Email" /></div>
+									<div class="col-12">
+										<textarea name="message" placeholder="Message"></textarea>
+									</div>
+									<div class="col-12">
+										<input type="submit" value="Send Message" />
+									</div>
+								</div>
+							</form>
+
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+{% include "footer.html" %}

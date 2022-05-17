@@ -1,0 +1,61 @@
+{% include "header.html" %}
+
+<div id="header">
+
+    <div class="top">
+
+        <!-- Logo -->
+
+        <!-- Nav -->
+            <nav id="nav">
+                <ul>
+                    <li><a href="{{url_for('hello_world')}}" ><span class="icon solid fa-home">Home</span></a></li>
+                    <li><a href="{{url_for('show_pf')}}" ><span class="icon solid fa-th">All project</span></a></li>
+
+                </ul>
+            </nav>
+           
+    </div>
+    <div class="bottom">
+
+        <!-- Social Icons -->
+            <ul class="icons">
+                <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                <li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+                <li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+                
+            </ul>
+    </div>
+    </div>
+
+</div>
+
+
+    <!-- Main -->
+    <div id="main">
+        <section id="top" class="one" style="background-color:#5063e334">
+            <div class="container">
+                <header>
+                    <h2 class="alt">{{pj.title}}</h2>
+                </header>
+            </div>
+        </section>
+
+        <!-- project data load -->
+        <section id="about" class="three">
+            <div class="container">
+
+                <header>
+                    <h2>{{pj.subtitle}}</h2>
+                </header>
+
+                <img src="{{pj.img_url}}" alt="Picture unavaible" />
+                
+                {{pj.body | safe}}
+                
+            </div>
+        </section>
+    </div>
+          
+{% include "footer.html" %}

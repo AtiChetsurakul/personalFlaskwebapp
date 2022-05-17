@@ -1,0 +1,208 @@
+{% include "header.html" %}
+<body class="is-preload">
+
+	<!-- Header -->
+		<div id="header">
+
+			<div class="top">
+
+				<!-- Logo -->
+					<div id="logo">
+						<span class="image avatar48"><img src="{{ url_for('static',filename = 'images/avatar.jpg') }}" alt="" /></span>
+						<h1 id="title">Ati chetsurakul</h1>
+						{%if current_user.is_authenticated%}
+						<p>Chemist,AI/Data scientist<a href = '{{url_for("crpost")}}'>🟢</a></p>
+						{%else%}
+						<p>Chemist,AI/Data scientist</p>
+						{%endif%}
+					</div>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li><a href="#cs50x" id="top-link"><span class="icon solid fa-th">CS50x</span></a></li>
+							<li><a href="#cs50ai" id="about-link"><span class="icon solid fa-th">CS50AI</span></a></li>
+							<li><a href="#dofcode" id="portfolio-link"><span class="icon solid fa-th">100D of code</span></a></li>
+							<li><a href="#chemist" id="portfolio-link"><span class="icon solid fa-th">Bsc.Chemistry</span></a></li>
+
+
+						</ul>
+					</nav>
+				   
+			</div>
+			<div class="bottom">
+
+				<!-- Social Icons -->
+					<ul class="icons">
+						<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+						<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						{%if current_user.is_authenticated%}
+						<li><a href="{{url_for('logout')}}" class="icon solid fa-key"><span class="label">Logout</span></a></li>
+						{%else%}
+						<li><a href="{{url_for('to_login')}}" class="icon solid fa-key"><span class="label">Login</span></a></li>
+						{%endif%}
+						
+					</ul>
+			</div>
+			</div>
+
+		</div>
+
+
+		<!-- Main -->
+			<div id="main">
+                <section id="top" class="one" style="background-color:#FFA38C">
+                    <div class="container">
+
+                        <header>
+                            <h2 class="alt">Portfolio</h2>
+                        </header>
+
+                        <footer>
+                            
+                        </footer>
+
+                    </div>
+
+
+
+                </section>
+
+					<section id="cs50x" class="two">
+						<div class="container">
+
+							<header>
+								<h2 class="alt"><strong>Project from CS50X course</strong>.</h2>
+
+							</header>
+
+                            <div class="row">
+                                {%for eachp in proj %}
+                                {%if eachp.category == 'x' %}
+                                <div class="col-4 col-12-mobile">
+                                    <article class="item">
+                                    <a href="{{url_for('show_each_pj',id = eachp.id)}}" class="image fit"><img src="{{eachp.img_url}}" alt="Picture unavaible" /></a>
+                                        <header>
+                                            <h3>{{eachp.title}}</h3>
+                                        </header>
+                                    
+                                    {%if current_user.is_authenticated%}
+                                    <p>
+                                        <a href = '{{url_for("delete_post",post_id = eachp.id)}}'>X</a>
+                                        <a href = '{{url_for("edit_post",post_id = eachp.id)}}'>edit</a>
+                                    </p>
+                                    {%endif%}
+                                    </article>
+                                
+                                </div>
+                                {%endif%}
+                                {%endfor%}
+                            </div>
+
+						</div>
+
+
+
+					</section>
+					<section id="cs50ai" class="three">
+						
+                        <div class="container">
+
+							<header>
+								<h2 class="alt"><strong>Project from CS50AI course</strong>.</h2>
+
+							</header>
+                            
+                            <div class="row">
+                                {%for eachp in proj %}
+                                {%if eachp.category == 'a' %}
+                                <div class="col-4 col-12-mobile">
+                                    <article class="item">
+                                    <a href="{{url_for('show_each_pj',id = eachp.id)}}" class="image fit"><img src="{{eachp.img_url}}" alt="Picture unavaible" />
+                                        <header>
+                                            <h3>{{eachp.title}}</h3>
+                                        </header>
+                                    </a>
+                                    {%if current_user.is_authenticated%}
+                                    <a href = '{{url_for("delete_post",post_id = eachp.id)}}'>X</a>
+                                    {%endif%}
+                                    </article>
+                                
+                                </div>
+                                {%endif%}
+                                {%endfor%}
+                            </div>
+
+						</div>
+					</section>
+
+					<section id="dofcode" class="four">
+                        <div class="container">
+
+							<header>
+								<h2 class="alt"><strong>Project from 100 Day of code by Dr.angela</strong>.</h2>
+
+							</header>
+                            
+                            <div class="row">
+                                {%for eachp in proj %}
+                                {%if eachp.category == 'd' %}
+                                <div class="col-4 col-12-mobile">
+                                    <article class="item">
+                                    <a href="{{url_for('show_each_pj',id = eachp.id)}}" class="image fit"><img src="{{eachp.img_url}}" alt="Picture unavaible" />
+                                        <header>
+                                            <h3>{{eachp.title}}</h3>
+                                        </header>
+                                    </a>
+                                    {%if current_user.is_authenticated%}
+                                    <a href = '{{url_for("delete_post",post_id = eachp.id)}}'>X</a>
+                                    {%endif%}
+                                    </article>
+                                
+                                </div>
+                                {%endif%}
+                                {%endfor%}
+                            </div>
+
+						</div>
+					</section>
+
+                    <section id="chemist" class="five">
+                        <div class="container">
+
+							<header>
+								<h2 class="alt"><strong>Chemistry project and work experience</strong>.</h2>
+							</header>
+                            
+                            <div class="row">
+                                {%for eachp in proj %}
+                                {%if eachp.category == 'd' %}
+                                <div class="col-4 col-12-mobile">
+                                    <article class="item">
+                                    <a href="{{url_for('show_each_pj',id = eachp.id)}}" class="image fit"><img src="{{eachp.img_url}}" alt="Picture unavaible" />
+                                        <header>
+                                            <h3>{{eachp.title}}</h3>
+                                        </header>
+                                    </a>
+                                    {%if current_user.is_authenticated%}
+                                    <a href = '{{url_for("delete_post",post_id = eachp.id)}}'>X</a>
+                                    {%endif%}
+                                    </article>
+                                
+                                </div>
+                                {%endif%}
+                                {%endfor%}
+                            </div>
+
+						</div>
+					</section>
+                    
+
+
+
+			</div>
+
+		<!-- Footer -->
+{% include "footer.html" %}

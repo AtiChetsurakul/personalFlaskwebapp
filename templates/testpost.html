@@ -1,0 +1,23 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+{% include "header.html" %}
+
+
+<div id="main">
+    <div class="container">
+
+        <header>
+            <h2>Create post</h2>
+        </header>
+        {{ ckeditor.load() }}
+        {{ ckeditor.config(name='body') }}
+        {{wtf.quick_form(form)}}
+
+
+
+    </div>
+</div>
+{% include "footer.html" %}
+{%endblock%}

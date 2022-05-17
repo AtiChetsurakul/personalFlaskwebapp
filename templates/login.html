@@ -1,0 +1,73 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+
+{% include "header.html" %}
+
+	<!-- Header -->
+    <div id="header">
+
+        <div class="top">
+
+
+
+            <!-- Nav -->
+                <nav id="nav">
+                    <ul>
+                        <li><a href="#" id="top-link"><span class="icon solid fa-home">Login</span></a></li>
+                        
+
+                    </ul>
+                </nav>
+               
+        </div>
+        <div class="bottom">
+
+            <!-- Social Icons -->
+                <ul class="icons">
+                    <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                    <li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+                    <li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+                    <li><a href="#" class="icon solid fa-key"><span class="label">Login</span></a></li>
+                </ul>
+
+        </div>
+
+
+        </div>
+
+
+    </div>
+
+    <div id="main">
+<div class="container">
+
+    <header>
+        <h2>Login</h2>
+    </header>
+
+    <p>for admin to add some post on the progress</p>
+
+
+    {{wtf.quick_form(form)}}
+
+    <!-- <form method="post" action="#">
+        <div class="row">
+            <div class="col-6 col-12-mobile"><input type="text" name="name" placeholder="Name" /></div>
+            <div class="col-6 col-12-mobile"><input type="text" name="email" placeholder="Email" /></div>
+            <div class="col-12">
+                <textarea name="message" placeholder="Message"></textarea>
+            </div>
+            <div class="col-12">
+                <input type="submit" value="Send Message" />
+            </div>
+        </div>
+    </form> -->
+
+</div>
+
+</div>
+{% include "footer.html" %}
+{%endblock %}
