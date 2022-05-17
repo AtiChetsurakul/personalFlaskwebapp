@@ -13,9 +13,13 @@ import datetime as dt
 # TODO move this to os.env
 PASSWORD_STR = os.environ.get('adminpassw','pw')
 
+uri = os.getenv("DATABASE_URL","sqlite:///portf.db")  # or other relevant config var
+if uri.startswith("postgres://"):
+    uri = uri.replace("postgres://", "postgresql://", 1)
+    
 app = Flask(__name__)
 app.config['SECRET_KEY'] =os.environ.get('secretkey','apple_nohash')
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL',"sqlite:///portf.db")
+app.config['SQLALCHEMY_DATABASE_URI'] = uri
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['sheet'] = 'static/files'
 app.config['sheetpath'] = os.environ.get('SHEETPATH_CV','cv.csv')
