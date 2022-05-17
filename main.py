@@ -11,10 +11,10 @@ import pyperclip3 as pyclip
 import datetime as dt
 
 # TODO move this to os.env
-PASSWORD_STR = 'apple'
+PASSWORD_STR = os.environ.get('adminpassw','pw')
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] ='apple_hash'
+app.config['SECRET_KEY'] =os.environ.get('secretkey','apple_nohash')
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL',"sqlite:///portf.db")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['sheet'] = 'static/files'
