@@ -3,7 +3,7 @@
 using heroku & gunicorn to run flask web app with the template from Html5up 
 the site use for providing personal information eg. Education project portfolio
 
-## Feture
+## Feature
 
 1. db contain
   - with database file or PostgreSQL make possible to add new project to show inside the web
